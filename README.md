@@ -1,5 +1,4 @@
-**📦 Aplicație Android pentru Inventariere cu Scanare Coduri de Bare
-**
+📦 **Aplicație Android pentru Inventariere cu Scanare Coduri de Bare**
 Această aplicație Android este destinată gestionării stocurilor prin scanarea codurilor de bare, fiind optimizată pentru dispozitive Zebra. 
 Permite importul unui fișier CSV cu produse, scanarea acestora, actualizarea stocului real, verificarea produselor neinventariate și exportul datelor într-un fișier actualizat. 
 Include și o funcție de gestionare a loturilor și a datelor de expirare.
