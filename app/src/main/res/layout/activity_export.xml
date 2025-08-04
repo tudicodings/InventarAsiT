@@ -1,0 +1,46 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <Button
+        android:id="@+id/btnInapoiMeniu"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#2196F3"
+        android:text="@string/back_meniu" />
+
+    <View
+        android:id="@+id/divider2"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:background="?android:attr/listDivider"
+        android:backgroundTint="#00FFFFFF" />
+
+    <EditText
+        android:id="@+id/emailInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/introdu_adresa_de_email"
+        android:inputType="textEmailAddress"
+        android:padding="12dp" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="?android:attr/listDivider"
+        android:backgroundTint="#00FFFFFF" />
+
+    <Button
+        android:id="@+id/btnTrimiteEmail"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="12dp"
+        android:backgroundTint="#2196F3"
+        android:padding="12dp"
+        android:text="@string/trimite_pe_email" />
+
+</LinearLayout>

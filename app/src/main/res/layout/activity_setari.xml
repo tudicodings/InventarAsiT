@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/btnInapoiMeniu"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#2196F3"
+        android:text="@string/back_meniu" />
+
+    <Button
+        android:id="@+id/btnProduseNescanate"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:backgroundTint="#2196F3"
+        android:text="@string/vezi_produse_nescanate" />
+
+    <Button
+        android:id="@+id/btnVerificareLot"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:backgroundTint="#2196F3"
+        android:text="@string/verificare_lot" />
+
+</LinearLayout>

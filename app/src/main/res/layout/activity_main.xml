@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <Button
+        android:id="@+id/btnInapoiMeniu"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#2196F3"
+        android:text="@string/back_meniu" />
+
+    <TextView
+        android:id="@+id/scanResult"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:paddingBottom="8dp"
+        android:text="@string/scan_un_produs"
+        android:textAlignment="center"
+        android:textSize="18sp" />
+
+
+    <EditText
+        android:id="@+id/stocInput"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="@string/ins_stoc_r"
+        android:inputType="number"
+        android:paddingBottom="8dp" />
+
+    <EditText
+        android:id="@+id/hiddenScanInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:cursorVisible="false"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:inputType="none"
+        android:longClickable="false"
+        android:textIsSelectable="false"
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="165dp"
+        android:fillViewport="true"
+        android:overScrollMode="ifContentScrolls">
+
+        <TextView
+            android:id="@+id/txtDetaliiProdus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="7dp"
+            android:scrollbars="vertical"
+            android:text="@string/det_prod"
+            android:textColor="#000000"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+    </ScrollView>
+
+
+    <Button
+        android:id="@+id/salveazaStocBtn"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:backgroundTint="#2196F3"
+        android:text="@string/save_int_stoc" />
+
+
+</LinearLayout>
