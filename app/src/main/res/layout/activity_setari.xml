@@ -28,4 +28,11 @@
         android:backgroundTint="#2196F3"
         android:text="@string/verificare_lot" />
 
+    <Button
+        android:id="@+id/btnGreutateStc"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:backgroundTint="#2196F3"
+        android:text="@string/inr_greut" />
+
 </LinearLayout>

@@ -14,7 +14,7 @@ import com.google.gson.Gson
 import java.io.BufferedReader
 import java.io.InputStreamReader
 
-class MainActivity : AppCompatActivity(){
+class GreutateActivity : AppCompatActivity() {
 
     private lateinit var scanResultText: TextView
     public lateinit var listaProduse: List<Produs>
@@ -23,7 +23,6 @@ class MainActivity : AppCompatActivity(){
     }
     private lateinit var stocInput: EditText
     private lateinit var hiddenInput: EditText
-    private lateinit var salveazaStocBtn: Button
     private var produsCurent: Produs? = null
 
 
@@ -31,7 +30,7 @@ class MainActivity : AppCompatActivity(){
     @SuppressLint("UnspecifiedRegisterReceiverFlag", "SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_greutate)
 
         scanResultText = findViewById(R.id.scanResult)
         listaProduse = ListaProduseHolder.listaProduse.ifEmpty {
@@ -56,7 +55,7 @@ class MainActivity : AppCompatActivity(){
             val stocNou = stocInput.text.toString().replace(",", ".").toDoubleOrNull()
 
             if (stocNou != null && produsCurent != null) {
-                produsCurent!!.stocScan += stocNou
+                produsCurent!!.stocScan = stocNou
                 scanResultText.text = "${produsCurent!!.nume}: $stocNou buc."
                 stocInput.text.clear()
 

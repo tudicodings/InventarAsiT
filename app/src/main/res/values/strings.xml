@@ -3,12 +3,14 @@
     <string name="scan_un_produs">Scanează un produs...</string>
     <string name="ins_stoc_r">Introdu stocul real</string>
     <string name="save_int_stoc">Salvează stoc</string>
+    <string name="save_greutate">Salvează greutate</string>
     <string name="det_prod">Detalii produs</string>
     <string name="exp_csv">Exportă CSV</string>
     <string name="meniu_export_csv">Meniu Export CSV</string>
     <string name="introdu_adresa_de_email">Introdu adresa de email</string>
     <string name="trimite_pe_email">Trimite pe email</string>
     <string name="scanare">Scanare</string>
+    <string name="scanare_inv_st">Scanare Inventariere</string>
     <string name="importt">Import</string>
     <string name="export">Export</string>
     <string name="set_ri">Setări</string>
@@ -17,7 +19,10 @@
     <string name="logo">logo</string>
     <string name="nume_aplicatie">Inventar AsiT</string>
     <string name="vezi_produse_nescanate">Vezi Produse Nescanate</string>
-    <string name="verificare_lot">Verifica Lot</string>
+    <string name="verificare_lot">Verifică Lot</string>
     <string name="noua_data_exp">Noua dată de expirare (ex: 2025-12-31)</string>
     <string name="cant_data">Cantitate cu această dată</string>
+    <string name="int_gre">Introdu cantitatea</string>
+    <string name="optiuni">Opțiuni</string>
+    <string name="inr_greut">Înregistrare Greutate</string>
 </resources>

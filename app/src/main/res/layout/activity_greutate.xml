@@ -17,18 +17,17 @@
     <TextView
         android:id="@+id/scanResult"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:paddingBottom="8dp"
+        android:layout_height="38dp"
+        android:paddingBottom="2dp"
         android:text="@string/scan_un_produs"
         android:textAlignment="center"
         android:textSize="18sp" />
-
 
     <EditText
         android:id="@+id/stocInput"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:hint="@string/ins_stoc_r"
+        android:hint="@string/int_gre"
         android:inputType="numberDecimal"
         android:paddingBottom="8dp" />
 
@@ -68,7 +67,7 @@
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:backgroundTint="#2196F3"
-        android:text="@string/save_int_stoc" />
+        android:text="@string/save_greutate" />
 
 
 </LinearLayout>

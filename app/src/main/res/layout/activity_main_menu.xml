@@ -39,7 +39,7 @@
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:backgroundTint="#2196F3"
-        android:text="@string/scanare" />
+        android:text="@string/scanare_inv_st" />
 
     <Button
         android:id="@+id/btnImport"
@@ -62,6 +62,6 @@
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:backgroundTint="#2196F3"
-        android:text="@string/set_ri"
+        android:text="@string/optiuni"
         android:layout_marginTop="16dp" />
 </LinearLayout>

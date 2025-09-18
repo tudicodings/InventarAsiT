@@ -19,7 +19,7 @@ class ProdNesActivity : AppCompatActivity() {
         recyclerView = findViewById(R.id.recyclerViewNescanate)
         recyclerView.layoutManager = LinearLayoutManager(this)
 
-        val produseNescanate = ListaProduseHolder.listaProduse.filter { it.stocScan == 0}
+        val produseNescanate = ListaProduseHolder.listaProduse.filter { it.stocScan == 0.0}
         adapter = ProdusNescanatAdapter(produseNescanate)
         recyclerView.adapter = adapter
 

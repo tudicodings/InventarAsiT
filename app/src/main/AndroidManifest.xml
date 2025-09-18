@@ -27,6 +27,7 @@
         <activity android:name=".ProdNesActivity" android:exported="true" />
         <activity android:name=".SetariActivity" android:exported="true" />
         <activity android:name=".VerifLotActivity" android:exported="true" />
+        <activity android:name=".GreutateActivity" android:exported="true" />
 
 
         <provider

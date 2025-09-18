@@ -6,6 +6,6 @@ data class Produs(
     val locatie: String,
     val codBare: String,
     val um: String,
-    var stocInit: Int,
-    var stocScan: Int = 0
+    var stocInit: Double,
+    var stocScan: Double = 0.0
 )

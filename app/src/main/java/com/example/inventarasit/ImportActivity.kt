@@ -24,6 +24,7 @@ class ImportActivity : AppCompatActivity() {
             val intent = Intent(Intent.ACTION_GET_CONTENT)
             intent.type = "text/*"
             intent.addCategory(Intent.CATEGORY_OPENABLE)
+            @Suppress("DEPRECATION")
             startActivityForResult(Intent.createChooser(intent, "Selectează fișier CSV"), PICK_CSV_FILE)
         }
 
@@ -70,8 +71,8 @@ class ImportActivity : AppCompatActivity() {
                     val locatie = values[2]
                     val codBare = values[3]
                     val um = values[4]
-                    val stocScan = values[5].toIntOrNull() ?: 0
-                    val stocInit = values[6].toIntOrNull() ?: 0
+                    val stocScan = values[5].toDoubleOrNull() ?: 0.0
+                    val stocInit = values[6].toDoubleOrNull() ?: 0.0
 
                     produse.add(
                         Produs(
