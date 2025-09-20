@@ -69,8 +69,7 @@ class GreutateActivity : AppCompatActivity() {
                                     Locație: ${produsCurent!!.locatie}
                                     Cod bare: ${produsCurent!!.codBare}
                                     UM: ${produsCurent!!.um}
-                                    Stoc inițial: ${produsCurent!!.stocInit}
-                                    Stoc scanat: ${produsCurent!!.stocScan}
+                                    Greutate produs: ${produsCurent!!.stocScan}
                             """.trimIndent()
                     txtDetalii.text = detalii
                 } else {

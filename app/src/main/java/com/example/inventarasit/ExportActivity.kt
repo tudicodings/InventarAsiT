@@ -70,6 +70,7 @@ class ExportActivity : AppCompatActivity() {
 
         for (produs in lista) {
             val diferenta = produs.stocInit - produs.stocScan
+            //val stocNou = String.format(Locale("ro", "RO"), "%4f", produs.stocScan)
             writer.append("${produs.codMarfa};${produs.nume};${produs.locatie};${produs.codBare};${produs.um};${produs.stocScan};${produs.stocInit};$diferenta\n")
         }
 
