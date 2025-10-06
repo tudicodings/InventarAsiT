@@ -5,3 +5,8 @@ Include și o funcție de gestionare a loturilor și a datelor de expirare.
 
 Aplicația este dezvoltată în Kotlin, utilizează componente precum RecyclerView, Intenții personalizate pentru scanare, și SharedPreferences pentru salvarea temporară a datelor. 
 Este adaptată pentru uz logistic în depozite și firme de distribuție.
+
+
+## 📲 App Preview
+
+👉 [View Screenshots Folder](./app/src/main/java/images)
