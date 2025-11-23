@@ -7,5 +7,6 @@ data class Produs(
     val codBare: String,
     val um: String,
     var stocInit: Double,
-    var stocScan: Double = 0.0
+    var stocScan: Double = 0.0,
+    var dataProdus: String? = null /// FORMAT: DD_MM_YY
 )

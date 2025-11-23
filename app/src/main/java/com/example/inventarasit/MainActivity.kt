@@ -148,7 +148,7 @@ class MainActivity : AppCompatActivity(){
 
         reader.forEachLine { line ->
             val values = line.split(";")
-            if (values.size >= 7) {
+            if (values.size >= 8) {
                 val codMarfa = values[0]
                 val nume = values[1]
                 val locatie = values[2]
@@ -156,6 +156,7 @@ class MainActivity : AppCompatActivity(){
                 val um = values[4]
                 val stocScan = values[5].toDoubleOrNull() ?: 0.0
                 val stocInit = values[6].toDoubleOrNull() ?: 0.0
+                val dataProd = values[7]
 
                 produse.add(
                     Produs(
@@ -165,7 +166,8 @@ class MainActivity : AppCompatActivity(){
                         codBare = codBare,
                         um = um,
                         stocScan = stocScan,
-                        stocInit = stocInit
+                        stocInit = stocInit,
+                        dataProdus = dataProd
                     )
                 )
             }

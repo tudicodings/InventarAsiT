@@ -57,6 +57,7 @@ class ImportActivity : AppCompatActivity() {
         }
     }
 
+
     private fun citesteProduseDinCSV(uri: Uri): List<Produs> {
         val produse = mutableListOf<Produs>()
         try {
@@ -65,24 +66,32 @@ class ImportActivity : AppCompatActivity() {
 
             reader.forEachLine { line ->
                 val values = line.split(";")
-                if (values.size >= 7) {
+                if (values.size >= 8) {
                     val codMarfa = values[0]
                     val nume = values[1]
                     val locatie = values[2]
                     val codBare = values[3]
+                    //val codBare = values[2]
                     val um = values[4]
                     val stocScan = values[5].toDoubleOrNull() ?: 0.0
+                    //val stocScan = values[3].toDoubleOrNull() ?: 0.0
                     val stocInit = values[6].toDoubleOrNull() ?: 0.0
+                    val dataProd = values[7]
+                    //val dataProd = values[4]
 
                     produse.add(
                         Produs(
                             codMarfa = codMarfa,
                             nume = nume,
                             locatie = locatie,
+                            //locatie = "",
                             codBare = codBare,
                             um = um,
+                            //um = "",
                             stocScan = stocScan,
-                            stocInit = stocInit
+                            stocInit = stocInit,
+                            //stocInit = 0.0,
+                            dataProdus = dataProd
                         )
                     )
                 }

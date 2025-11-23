@@ -1,33 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:padding="16dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/txtDetaliiLot"
+    <Button
+        android:id="@+id/btnInapoiMeniu"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_marginTop="16dp"
+        android:backgroundTint="#2196F3"
+        android:text="@string/back_meniu" />
+
+    <TextView
+        android:id="@+id/scanResult"
+        android:layout_width="match_parent"
+        android:layout_height="38dp"
+        android:paddingBottom="2dp"
         android:text="@string/scan_un_produs"
-        android:textSize="16sp" />
+        android:textAlignment="center"
+        android:textSize="18sp" />
 
     <EditText
         android:id="@+id/inputDataExpirare"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:hint="@string/noua_data_exp" />
+        android:layout_height="50dp"
+        android:hint="@string/noua_data_exp"
+        android:inputType="text"
+        android:paddingBottom="8dp"/>
+    <EditText
+        android:id="@+id/hiddenScanInput"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:cursorVisible="false"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:inputType="none"
+        android:longClickable="false"
+        android:textIsSelectable="false"
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
     <EditText
         android:id="@+id/inputCantitate"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_height="50dp"
         android:hint="@string/cant_data"
-        android:inputType="number" />
+        android:inputType="number"
+        android:paddingBottom="8dp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:paddingTop="8dp"
+        android:layout_height="165dp"
+        android:fillViewport="true"
+        android:overScrollMode="ifContentScrolls">
+
+        <TextView
+            android:id="@+id/txtDetaliiProdus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="7dp"
+            android:scrollbars="vertical"
+            android:text="@string/det_prod"
+            android:textColor="#000000"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+    </ScrollView>
+
 
     <Button
         android:id="@+id/btnSalveazaLot"
@@ -37,11 +78,8 @@
         android:backgroundTint="#2196F3"
         android:text="@string/save_int_stoc" />
 
-    <EditText
-        android:id="@+id/hiddenScanInput"
-        android:layout_width="4dp"
-        android:layout_height="2dp"
-        android:focusable="true"
-        android:focusableInTouchMode="true" />
+
+
+
 
 </LinearLayout>
