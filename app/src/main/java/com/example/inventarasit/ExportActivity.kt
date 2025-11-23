@@ -79,6 +79,8 @@ class ExportActivity : AppCompatActivity() {
         return csvFile
     }
 
+    //TODO: TREBUIE DE ADAUGAT UN EXPORT SPECIAL PENTRU LOTURI
+
 
     private fun trimiteEmailCuFisier(destinatar: String, fisier: File) {
         val uri: Uri = FileProvider.getUriForFile(

@@ -20,7 +20,7 @@
     <string name="nume_aplicatie">Inventar AsiT</string>
     <string name="vezi_produse_nescanate">Vezi Produse Nescanate</string>
     <string name="verificare_lot">Verifică Lot</string>
-    <string name="noua_data_exp">Noua dată de expirare (ex: DD-MM-YY)</string>
+    <string name="noua_data_exp">Noua dată de expirare (ex: DD-MM-YYYY)</string>
     <string name="cant_data">Cantitate cu această dată</string>
     <string name="int_gre">Introdu cantitatea</string>
     <string name="optiuni">Opțiuni</string>

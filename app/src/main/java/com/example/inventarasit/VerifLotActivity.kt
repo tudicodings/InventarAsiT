@@ -29,6 +29,7 @@ class VerifLotActivity : AppCompatActivity() {
     private var produsCurent: Produs? = null
 
 
+    @SuppressLint("SetTextI18n", "UnspecifiedRegisterReceiverFlag")
     override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_verifica_lot)
@@ -112,6 +113,7 @@ class VerifLotActivity : AppCompatActivity() {
     }
 
     private val scanReceiver: BroadcastReceiver = object : BroadcastReceiver(){
+        @SuppressLint("SetTextI18n")
         override fun onReceive(context: Context?, intent: Intent?) {
             val data = intent?.getStringExtra("com.symbol.datawedge.data_string")
             hiddenInput.setText(data ?: "")
