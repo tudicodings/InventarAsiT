@@ -6,6 +6,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import java.io.BufferedReader
 import java.io.InputStreamReader
@@ -21,11 +22,18 @@ class ImportActivity : AppCompatActivity() {
         val btnAlegeCSV = findViewById<Button>(R.id.btnAlegeCSV)
 
         btnAlegeCSV.setOnClickListener {
-            val intent = Intent(Intent.ACTION_GET_CONTENT)
-            intent.type = "text/*"
-            intent.addCategory(Intent.CATEGORY_OPENABLE)
-            @Suppress("DEPRECATION")
-            startActivityForResult(Intent.createChooser(intent, "Selectează fișier CSV"), PICK_CSV_FILE)
+            if (ListaProduseHolder.isModified) {
+                AlertDialog.Builder(this)
+                    .setTitle("Confirmare import")
+                    .setMessage("Ați modificat lista de produse. Sigur doriți să importați o listă nouă și să pierdeți modificările nesalvate?")
+                    .setPositiveButton("Da") { _, _ ->
+                        startImport()
+                    }
+                    .setNegativeButton("Nu", null)
+                    .show()
+            } else {
+                startImport()
+            }
         }
 
         //buton home
@@ -38,6 +46,14 @@ class ImportActivity : AppCompatActivity() {
         }
     }
 
+    private fun startImport() {
+        val intent = Intent(Intent.ACTION_GET_CONTENT)
+        intent.type = "text/*"
+        intent.addCategory(Intent.CATEGORY_OPENABLE)
+        @Suppress("DEPRECATION")
+        startActivityForResult(Intent.createChooser(intent, "Selectează fișier CSV"), PICK_CSV_FILE)
+    }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
@@ -45,6 +61,7 @@ class ImportActivity : AppCompatActivity() {
             data?.data?.let { uri ->
                 val produseImportate = citesteProduseDinCSV(uri)
                 ListaProduseHolder.listaProduse = produseImportate
+                ListaProduseHolder.isModified = false // Reset flag on new import
 
                 Toast.makeText(this, "Importat ${produseImportate.size} produse!", Toast.LENGTH_LONG).show()
 

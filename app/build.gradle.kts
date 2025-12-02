@@ -14,7 +14,7 @@ android {
         //noinspection ExpiredTargetSdkVersion
         targetSdk = 24
         versionCode = 1
-        versionName = "1.0"
+        versionName = "1.1a"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -42,6 +42,7 @@ android {
         targetCompatibility = JavaVersion.VERSION_11
     }
     kotlinOptions {
+        @Suppress("DEPRECATION")
         jvmTarget = "11"
     }
     buildFeatures {
@@ -67,7 +68,8 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
     implementation(libs.androidx.appcompat)
-    implementation("com.google.code.gson:gson:2.13.1")
+    //noinspection UseTomlInstead
+    implementation("com.google.code.gson:gson:2.13.2")
     implementation(libs.androidx.recyclerview)
     implementation(libs.androidx.recyclerview.v131)
     testImplementation(libs.junit)

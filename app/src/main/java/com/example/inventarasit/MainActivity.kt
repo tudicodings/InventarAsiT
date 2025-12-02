@@ -30,6 +30,7 @@ class MainActivity : AppCompatActivity(){
 
     @SuppressLint("UnspecifiedRegisterReceiverFlag", "SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?){
+        ListaProduseHolder.isModified = true
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
@@ -70,7 +71,6 @@ class MainActivity : AppCompatActivity(){
                                     Locație: ${produsCurent!!.locatie}
                                     Cod bare: ${produsCurent!!.codBare}
                                     UM: ${produsCurent!!.um}
-                                    Stoc inițial: ${produsCurent!!.stocInit}
                                     Stoc scanat: ${produsCurent!!.stocScan}
                             """.trimIndent()
                     txtDetalii.text = detalii
@@ -124,7 +124,6 @@ class MainActivity : AppCompatActivity(){
                                     Locație: ${produsCurent!!.locatie}
                                     Cod bare: ${produsCurent!!.codBare}
                                     UM: ${produsCurent!!.um}
-                                    Stoc inițial: ${produsCurent!!.stocInit}
                                     Stoc scanat: ${produsCurent!!.stocScan}
                             """.trimIndent()
                 txtDetalii.text = detalii
