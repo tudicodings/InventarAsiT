@@ -32,8 +32,18 @@ class VerifLotActivity : AppCompatActivity() {
     @SuppressLint("SetTextI18n", "UnspecifiedRegisterReceiverFlag")
     override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_verifica_lot)
+        //setContentView(R.layout.activity_verifica_lot)
+        setContentView(R.layout.activity_inlucru)
 
+        val btnInapoiMeniu = findViewById<Button>(R.id.btnInapoiMeniu)
+        btnInapoiMeniu.setOnClickListener {
+            val intent = Intent(this, MainMenuActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP)
+            startActivity(intent)
+            finish()
+        }
+
+        /*
         scanResultText = findViewById(R.id.scanResult)
         listaProduse = ListaProduseHolder.listaProduse.ifEmpty {
             citesteProduseDinCSV(this)
@@ -175,11 +185,13 @@ class VerifLotActivity : AppCompatActivity() {
 
         inputStream.close()
         return produse
-
     }
 
     override fun onDestroy() {
         super.onDestroy()
         unregisterReceiver(scanReceiver)
+     */
     }
+
 }
+

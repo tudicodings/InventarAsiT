@@ -20,6 +20,7 @@ class ExportActivity : AppCompatActivity() {
     private lateinit var fisierCsv: File
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        ListaProduseHolder.isModified = false
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_export)
 

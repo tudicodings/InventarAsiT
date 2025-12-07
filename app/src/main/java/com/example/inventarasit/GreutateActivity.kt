@@ -29,6 +29,7 @@ class GreutateActivity : AppCompatActivity() {
 
     @SuppressLint("UnspecifiedRegisterReceiverFlag", "SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?){
+        ListaProduseHolder.isModified = true
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_greutate)
 
