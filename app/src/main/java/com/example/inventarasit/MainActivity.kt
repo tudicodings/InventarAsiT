@@ -5,7 +5,9 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
+import android.os.Build
 import android.os.Bundle
+import android.view.inputmethod.EditorInfo
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -27,8 +29,6 @@ class MainActivity : AppCompatActivity(){
     private lateinit var salveazaStocBtn: Button
     private var produsCurent: Produs? = null
 
-
-
     @SuppressLint("UnspecifiedRegisterReceiverFlag", "SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?){
         ListaProduseHolder.isModified = true
@@ -45,39 +45,43 @@ class MainActivity : AppCompatActivity(){
         // asculta intenturile de la zebra
         val filter = IntentFilter()
         filter.addAction("com.example.inventarasit.SCAN") // la fel ca in DataWedge
-        registerReceiver(scanReceiver, filter)
+        
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            registerReceiver(scanReceiver, filter, Context.RECEIVER_EXPORTED)
+        } else {
+            @Suppress("UnspecifiedRegisterReceiverFlag")
+            registerReceiver(scanReceiver, filter)
+        }
 
         hiddenInput = findViewById(R.id.hiddenScanInput)
         hiddenInput.requestFocus()
+        
+        // Permite introducerea manuală pentru telefoane normale
+        hiddenInput.setOnEditorActionListener { _, actionId, _ ->
+            if (actionId == EditorInfo.IME_ACTION_DONE || actionId == EditorInfo.IME_ACTION_NEXT) {
+                val data = hiddenInput.text.toString().trim()
+                if (data.isNotEmpty()) {
+                    cautaSiAfiseazaProdus(data)
+                }
+                true
+            } else {
+                false
+            }
+        }
 
         stocInput = findViewById<EditText>(R.id.stocInput)
-        val btnUpdate = findViewById<Button>(R.id.salveazaStocBtn)
+        salveazaStocBtn = findViewById<Button>(R.id.salveazaStocBtn)
 
-        btnUpdate.setOnClickListener {
-            //val stocNou = stocInput.text.toString().toIntOrNull()
+        salveazaStocBtn.setOnClickListener {
             val stocNou = stocInput.text.toString().replace(",", ".").toDoubleOrNull()
 
             if (stocNou != null && produsCurent != null) {
                 produsCurent!!.stocScan += stocNou
                 scanResultText.text = "${produsCurent!!.nume}: $stocNou buc."
                 stocInput.text.clear()
-
-                // info's produsCurent
-                val txtDetalii = findViewById<TextView>(R.id.txtDetaliiProdus)
-
-                if (produsCurent != null) {
-                    val detalii = """
-                                    Nume produs: ${produsCurent!!.nume}
-                                    Cod marfă: ${produsCurent!!.codMarfa}
-                                    Locație: ${produsCurent!!.locatie}
-                                    Cod bare: ${produsCurent!!.codBare}
-                                    UM: ${produsCurent!!.um}
-                                    Stoc scanat: ${produsCurent!!.stocScan}
-                            """.trimIndent()
-                    txtDetalii.text = detalii
-                } else {
-                    txtDetalii.text = "Produs negăsit pentru codul scanat."
-                }
+                
+                // Refresh detalii
+                cautaSiAfiseazaProdus(produsCurent!!.codBare)
 
             } else {
                 scanResultText.text = "Eroare: introduceți o valoare validă."
@@ -86,16 +90,7 @@ class MainActivity : AppCompatActivity(){
             stocInput.text.clear()
         }
 
-        fun salveazaListaInSharedPrefs(context: Context, lista: List<Produs>) {
-            val prefs = context.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
-            val editor = prefs.edit()
-            val gson = Gson()
-            val json = gson.toJson(lista)
-            editor.putString("listaProduse", json)
-            editor.apply()
-        }
-
-        //buton home
+        // buton home
         val btnInapoiMeniu = findViewById<Button>(R.id.btnInapoiMeniu)
         btnInapoiMeniu.setOnClickListener {
             val intent = Intent(this, MainMenuActivity::class.java)
@@ -103,35 +98,37 @@ class MainActivity : AppCompatActivity(){
             startActivity(intent)
             finish()
         }
-
-
     }
 
     private val scanReceiver: BroadcastReceiver = object : BroadcastReceiver(){
         @SuppressLint("SetTextI18n")
         override fun onReceive(context: Context?, intent: Intent?){
             val data = intent?.getStringExtra("com.symbol.datawedge.data_string")
-            hiddenInput.setText(data ?: "")
-
-            produsCurent = listaProduse.find { it.codBare == data }
-
-            // info's produsCurent
-            val txtDetalii = findViewById<TextView>(R.id.txtDetaliiProdus)
-
-            if (produsCurent != null) {
-                val detalii = """
-                                    Nume produs: ${produsCurent!!.nume}
-                                    Cod marfă: ${produsCurent!!.codMarfa}
-                                    Locație: ${produsCurent!!.locatie}
-                                    Cod bare: ${produsCurent!!.codBare}
-                                    UM: ${produsCurent!!.um}
-                                    Stoc scanat: ${produsCurent!!.stocScan}
-                            """.trimIndent()
-                txtDetalii.text = detalii
-            } else {
-                txtDetalii.text = "Produs negăsit pentru codul scanat."
+            if (data != null) {
+                hiddenInput.setText(data)
+                cautaSiAfiseazaProdus(data)
             }
+        }
+    }
 
+    @SuppressLint("SetTextI18n")
+    private fun cautaSiAfiseazaProdus(barcode: String) {
+        produsCurent = listaProduse.find { it.codBare == barcode }
+        val txtDetalii = findViewById<TextView>(R.id.txtDetaliiProdus)
+
+        if (produsCurent != null) {
+            val detalii = """
+                Nume produs: ${produsCurent!!.nume}
+                Cod marfă: ${produsCurent!!.codMarfa}
+                Locație: ${produsCurent!!.locatie}
+                Cod bare: ${produsCurent!!.codBare}
+                UM: ${produsCurent!!.um}
+                Stoc scanat: ${produsCurent!!.stocScan}
+            """.trimIndent()
+            txtDetalii.text = detalii
+            stocInput.requestFocus()
+        } else {
+            txtDetalii.text = "Produs negăsit pentru codul: $barcode"
         }
     }
 
@@ -140,42 +137,42 @@ class MainActivity : AppCompatActivity(){
         unregisterReceiver(scanReceiver)
     }
 
-    // citire din fisier Excel
     fun citesteProduseDinCSV(context: Context): List<Produs> {
         val produse = mutableListOf<Produs>()
-        val inputStream = context.assets.open("inventar_test.csv")
-        val reader = BufferedReader(InputStreamReader(inputStream))
+        try {
+            val inputStream = context.assets.open("inventar_test.csv")
+            val reader = BufferedReader(InputStreamReader(inputStream))
 
-        reader.forEachLine { line ->
-            val values = line.split(";")
-            if (values.size >= 8) {
-                val codMarfa = values[0]
-                val nume = values[1]
-                val locatie = values[2]
-                val codBare = values[3]
-                val um = values[4]
-                val stocScan = values[5].toDoubleOrNull() ?: 0.0
-                val stocInit = values[6].toDoubleOrNull() ?: 0.0
-                val dataProd = values[7]
+            reader.forEachLine { line ->
+                val values = line.split(";")
+                if (values.size >= 8) {
+                    val codMarfa = values[0]
+                    val nume = values[1]
+                    val locatie = values[2]
+                    val codBare = values[3]
+                    val um = values[4]
+                    val stocScan = values[5].toDoubleOrNull() ?: 0.0
+                    val stocInit = values[6].toDoubleOrNull() ?: 0.0
+                    val dataProd = values[7]
 
-                produse.add(
-                    Produs(
-                        codMarfa = codMarfa,
-                        nume = nume,
-                        locatie = locatie,
-                        codBare = codBare,
-                        um = um,
-                        stocScan = stocScan,
-                        stocInit = stocInit,
-                        dataProdus = dataProd
+                    produse.add(
+                        Produs(
+                            codMarfa = codMarfa,
+                            nume = nume,
+                            locatie = locatie,
+                            codBare = codBare,
+                            um = um,
+                            stocScan = stocScan,
+                            stocInit = stocInit,
+                            dataProdus = dataProd
+                        )
                     )
-                )
+                }
             }
+            inputStream.close()
+        } catch (e: Exception) {
+            e.printStackTrace()
         }
-
-        inputStream.close()
         return produse
     }
-
-
 }

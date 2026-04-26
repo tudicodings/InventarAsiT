@@ -10,9 +10,9 @@ android {
 
     defaultConfig {
         applicationId = "com.example.inventarasit"
-        minSdk = 24
+        minSdk = 26
         //noinspection ExpiredTargetSdkVersion
-        targetSdk = 24
+        targetSdk = 26
         versionCode = 1
         versionName = "1.1a"
 

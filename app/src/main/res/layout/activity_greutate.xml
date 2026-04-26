@@ -34,14 +34,13 @@
     <EditText
         android:id="@+id/hiddenScanInput"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:cursorVisible="false"
+        android:layout_height="48dp"
+        android:hint="@string/cod_bare_manual"
         android:focusable="true"
         android:focusableInTouchMode="true"
-        android:inputType="none"
-        android:longClickable="false"
-        android:textIsSelectable="false"
-        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+        android:inputType="text"
+        android:imeOptions="actionDone"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <ScrollView
         android:layout_width="match_parent"

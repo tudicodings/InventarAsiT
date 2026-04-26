@@ -26,4 +26,5 @@
     <string name="optiuni">Opțiuni</string>
     <string name="inr_greut">Înregistrare Greutate</string>
     <string name="functionalitate_in_lucru">⚙️ Functionalitate In Lucru ⚙️</string>
+    <string name="cod_bare_manual">Cod bare (manual/scan)</string>
 </resources>
