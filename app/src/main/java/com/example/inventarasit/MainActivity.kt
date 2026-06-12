@@ -11,8 +11,8 @@ import android.view.inputmethod.EditorInfo
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import com.google.gson.Gson
 import java.io.BufferedReader
 import java.io.InputStreamReader
 
@@ -29,6 +29,7 @@ class MainActivity : AppCompatActivity(){
     private lateinit var salveazaStocBtn: Button
     private var produsCurent: Produs? = null
 
+    @RequiresApi(Build.VERSION_CODES.CUPCAKE)
     @SuppressLint("UnspecifiedRegisterReceiverFlag", "SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?){
         ListaProduseHolder.isModified = true

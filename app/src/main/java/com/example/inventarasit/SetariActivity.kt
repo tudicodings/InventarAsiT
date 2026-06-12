@@ -18,6 +18,13 @@ class SetariActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        //buton raport diferente
+        val btnRaportDiferente = findViewById<Button>(R.id.btnRaportDiferente)
+        btnRaportDiferente.setOnClickListener {
+            val intent = Intent(this, RaportDifActivity::class.java)
+            startActivity(intent)
+        }
+
         //buton home
         val btnInapoiMeniu = findViewById<Button>(R.id.btnInapoiMeniu)
         btnInapoiMeniu.setOnClickListener {
@@ -27,13 +34,13 @@ class SetariActivity : AppCompatActivity() {
             finish()
         }
 
-        //buton verificare lot
+        /*//buton verificare lot
         val btnVerificareLot = findViewById<Button>(R.id.btnVerificareLot)
         btnVerificareLot.setOnClickListener {
             val intent = Intent(this, VerifLotActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP)
             startActivity(intent)
-        }
+        }*/
 
         //buton înregistrare greutăți
         val btnGreutateStc = findViewById<Button>(R.id.btnGreutateStc)

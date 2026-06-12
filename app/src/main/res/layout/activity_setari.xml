@@ -22,11 +22,20 @@
         android:text="@string/vezi_produse_nescanate" />
 
     <Button
+        android:id="@+id/btnRaportDiferente"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:backgroundTint="#2196F3"
+        android:text="@string/raport_diferente" />
+
+    <!--
+    <Button
         android:id="@+id/btnVerificareLot"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:backgroundTint="#2196F3"
         android:text="@string/verificare_lot" />
+    -->
 
     <Button
         android:id="@+id/btnGreutateStc"

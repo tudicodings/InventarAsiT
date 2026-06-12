@@ -6,9 +6,9 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/icon_asit_"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/icon_asit__round"
         android:supportsRtl="true"
         android:theme="@style/Theme.InventarAsiT">
         <activity
@@ -25,6 +25,7 @@
         <activity android:name=".ExportActivity" android:exported="true" />
         <activity android:name=".ImportActivity" android:exported="true" />
         <activity android:name=".ProdNesActivity" android:exported="true" />
+        <activity android:name=".RaportDifActivity" android:exported="true" />
         <activity android:name=".SetariActivity" android:exported="true" />
         <activity android:name=".VerifLotActivity" android:exported="true" />
         <activity android:name=".GreutateActivity" android:exported="true" />
