@@ -65,7 +65,7 @@ class ImportActivity : AppCompatActivity() {
 
                 Toast.makeText(this, "Importat ${produseImportate.size} produse!", Toast.LENGTH_LONG).show()
 
-                // Navighează înapoi către MainActivity după import
+                // navigarea catre meniu
                 val intent = Intent(this, MainMenuActivity::class.java)
                 intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
                 startActivity(intent)

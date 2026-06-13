@@ -42,7 +42,7 @@ class ExportActivity : AppCompatActivity() {
         // generam CSV-ul (salvat în directorul aplicației)
         fisierCsv = genereazaFisierCSV(listaProduse)
 
-        // 3. Când apeși pe buton, trimite CSV-ul pe mail
+        // buton directionare trimitere mail
         btnTrimiteEmail.setOnClickListener {
             val email = emailInput.text.toString()
             if (email.isNotEmpty()) {
