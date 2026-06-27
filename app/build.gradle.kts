@@ -10,7 +10,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.inventarasit"
-        minSdk = 26
+        minSdk = 23
         //noinspection ExpiredTargetSdkVersion
         targetSdk = 26
         versionCode = 1
@@ -68,7 +68,7 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
     implementation(libs.androidx.appcompat)
-    implementation("org.postgresql:postgresql:42.7.3")
+    //implementation("org.postgresql:postgresql:42.7.3")
     //noinspection UseTomlInstead
     implementation("com.google.code.gson:gson:2.13.2")
     implementation(libs.androidx.recyclerview)
